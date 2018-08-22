@@ -5,7 +5,7 @@ Simulator for the AI Wumpus World game in C++ with Python wrapper.
 Written by Larry Holder (holder@wsu.edu).
 
 The Wumpus Simulator is a simple framework for simulating the Wumpus World
-describing in Russell and Norvig's "Artificial Intelligence: A Modern
+described in Russell and Norvig's "Artificial Intelligence: A Modern
 Approach". The simulator is written in C++, but you can design your agent in
 either C++ or Python. The idea is for you to modify the Agent.h and Agent.cc
 (or PyAgent.py) files to implement your super-smart agent. The C++ agent
@@ -14,14 +14,13 @@ simulator.  The keyboard commands are 'f' for forward, 'l' for turnleft, 'r'
 for turnright, 'g' for grab, 's' for shoot, and 'c' for climb. The Python agent
 provided simply goes forward everytime.
 
-Quick Start
------------
+## Quick Start
 
 To try out the simulator, install the code on a UNIX system (or a system that
 has the 'make' program installed and a C++ compiler). Type 'make' to build the
 'wumpsim' executable. Then, type './wumpsim'. You should see a
 randomly-generated 4x4 world, information about the game state, and a prompt
-for the next action.When the game is over, scoring information is provided.
+for the next action. When the game is over, scoring information is provided.
 
 If you want to code your agent in Python, see the "Python Agent" section below.
 
@@ -30,7 +29,7 @@ Simulator Options
 
 The wumpus simulator takes a few options, as described below.
 
--size <N> lets you to set the size of the world to NxN (N>1). Default is 4.
+`-size <N>` lets you to set the size of the world to NxN (N>1). Default is 4.
 
 -trials <N> runs the simulator for N trials, where each trial generates a new
 wumpus world. Default is 1.
