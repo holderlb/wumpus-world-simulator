@@ -4,13 +4,13 @@ import Action
 import Orientation
 
 def PyAgent_Constructor ():
-    print "PyAgent_Constructor"
+    print("PyAgent_Constructor")
 
 def PyAgent_Destructor ():
-    print "PyAgent_Destructor"
+    print("PyAgent_Destructor")
 
 def PyAgent_Initialize ():
-    print "PyAgent_Initialize"
+    print("PyAgent_Initialize")
 
 def PyAgent_Process (stench,breeze,glitter,bump,scream):
     perceptStr = ""
@@ -34,9 +34,9 @@ def PyAgent_Process (stench,breeze,glitter,bump,scream):
         perceptStr += "Scream=True"
     else:
         perceptStr += "Scream=False"
-    print "PyAgent_Process: " + perceptStr
+    print("PyAgent_Process: " + perceptStr)
     
     return Action.GOFORWARD
 
 def PyAgent_GameOver (score):
-    print "PyAgent_GameOver: score = " + str(score)
+    print("PyAgent_GameOver: score = " + str(score))

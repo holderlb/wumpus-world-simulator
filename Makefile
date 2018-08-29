@@ -6,9 +6,13 @@ OBJECTS = Action.o Agent.o Location.o Orientation.o Percept.o WumpusWorld.o
 PYTHON-DEF = -DPYTHON
 PYTHON-OBJ = Action.o PyAgent.o Location.o Orientation.o Percept.o WumpusWorld.o
 
+PYTHON_CONFIG = python-config
+PYTHON-INC = $(shell $(PYTHON_CONFIG) --includes)
+PYTHON-LIB = $(shell $(PYTHON_CONFIG) --ldflags)
+
 # Settings for MacOS
-PYTHON-INC = -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7
-PYTHON-LIB = -L/System/Library/Frameworks/Python.framework/Versions/2.7/lib -lpython2.7
+# PYTHON-INC = -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7
+# PYTHON-LIB = -L/System/Library/Frameworks/Python.framework/Versions/2.7/lib -lpython2.7
 
 # Settings for CentOS Linux
 #PYTHON-INC = -I/usr/include/python2.7
@@ -44,4 +48,4 @@ WumpusWorld.o: WumpusWorld.h WumpusWorld.cc
 	$(CC) -c WumpusWorld.cc
 
 clean:
-	rm -f *.o wumpsim pywumpsim
+	rm -rf *.o *.pyc __pycache__ wumpsim pywumpsim

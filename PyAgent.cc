@@ -4,25 +4,34 @@
 
 using namespace std;
 
+PyObject * myPyObject_CallObject(PyObject *callable_object, PyObject *args) {
+	PyObject *pValue = PyObject_CallObject(callable_object, args);
+	if (pValue == NULL) {
+		PyErr_Print();
+		exit(1);
+	}
+	return pValue;
+}
+
 Agent::Agent (PyObject* module)
 {
 	pModule = module;
 	PyObject *pFunc = PyObject_GetAttrString(pModule, "PyAgent_Constructor");
-	PyObject_CallObject(pFunc, NULL);
+	myPyObject_CallObject(pFunc, NULL);
 	Py_DECREF(pFunc);
 }
 
 Agent::~Agent ()
 {
 	PyObject *pFunc = PyObject_GetAttrString(pModule, "PyAgent_Destructor");
-	PyObject_CallObject(pFunc, NULL);
+	myPyObject_CallObject(pFunc, NULL);
 	Py_DECREF(pFunc);
 }
 
 void Agent::Initialize ()
 {
 	PyObject *pFunc = PyObject_GetAttrString(pModule, "PyAgent_Initialize");
-	PyObject_CallObject(pFunc, NULL);
+	myPyObject_CallObject(pFunc, NULL);
 	Py_DECREF(pFunc);
 }
 
@@ -61,7 +70,7 @@ Action Agent::Process (Percept& percept)
 	}
 	PyTuple_SetItem(pArgs, 4, pValue);
 	PyObject *pFunc = PyObject_GetAttrString(pModule, "PyAgent_Process");
-	pValue = PyObject_CallObject(pFunc, pArgs);
+	pValue = myPyObject_CallObject(pFunc, pArgs);
 	Action action = (Action) PyInt_AsLong(pValue);
 	Py_DECREF(pValue);
 	Py_DECREF(pArgs);
@@ -75,7 +84,7 @@ void Agent::GameOver (int score)
 	PyObject *pValue = PyInt_FromLong(score);
 	PyTuple_SetItem(pArgs, 0, pValue);
 	PyObject *pFunc = PyObject_GetAttrString(pModule, "PyAgent_GameOver");
-	PyObject_CallObject(pFunc, pArgs);
+	myPyObject_CallObject(pFunc, pArgs);
 	Py_DECREF(pArgs);
 	//Py_DECREF(pValue);
 	Py_DECREF(pFunc);

@@ -33,10 +33,15 @@ int main (int argc, char *argv[])
 #ifdef PYTHON
 	PyObject *pName, *pModule;
 	Py_Initialize();
-	pName = PyString_FromString("PyAgent");
+	#if PY_MAJOR_VERSION >= 3
+		pName = PyUnicode_FromString("PyAgent");
+	#else
+		pName = PyString_FromString("PyAgent");
+	#endif
 	pModule = PyImport_Import(pName);
 	if (pModule == NULL) {
 		cout << "pModule = NULL\n";
+		PyErr_Print();
 		exit(1);
 	}
 	Py_DECREF(pName);
