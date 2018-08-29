@@ -123,3 +123,8 @@ after changes to PyAgent.py; this file is reloaded everytime 'pywumpsim' is
 executed.
 
 Happy hunting!
+
+## Contributors
+
+Thanks to Sergio Tessaris (@stessaris) for updates to support Python 3.
+
