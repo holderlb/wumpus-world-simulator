@@ -94,16 +94,12 @@ simply run 'pywumpsim'; no need to recompile the simulator.
 
 ## Python Agent
 
-You can also implement your agent in Python. First, you will need to compile a
-different version of the simulator that supports calling external Python agent
-functions. Instead of 'make' or 'make wumpsim', you should instead compile the
-simulator using 'make pywumpsim'. But before that, edit the Makefile to make
-sure the PYTHON\_INC variable is set to the path where your system keeps the
-python header files (specifically, Python.h), and the PYTHON\_LIB variable is
-set to the path where your system keeps the python library files. The values in
-this distribution are for a MacOS platform. This version assumes you are using
-Python 2.7. On some platforms you need to set the PYTHONPATH environment
-variable to your working directory, where pywumpsim and PyAgent.py reside.
+You can also implement your agent in Python 2 or 3. First, you will need to
+compile a different version of the simulator that supports calling external
+Python agent functions. Instead of 'make' or 'make wumpsim', you should instead
+compile the simulator using 'make pywumpsim'.  On some platforms you need to
+set the PYTHONPATH environment variable to your working directory, where
+pywumpsim and PyAgent.py reside.
 
 Next, you will make all your changes to the PyAgent.py file. You will see five
 functions in the file: PyAgent\_Constructor, PyAgent\_Destructor,
@@ -126,5 +122,5 @@ Happy hunting!
 
 ## Contributors
 
-Thanks to Sergio Tessaris (@stessaris) for updates to support Python 3.
+Thanks to [Sergio Tessaris](https://github.com/stessaris) for updates to support Python 3.
 
