@@ -103,8 +103,8 @@ pywumpsim and PyAgent.py reside.
 
 ```
 make pywumpsim
-export PYTHONPATH=$PYTHONPATH:[YOUR_WORKING_PATH]
 
+export PYTHONPATH=$PYTHONPATH:[YOUR_WORKING_PATH]
 ```
 
 Next, you will make all your changes to the PyAgent.py file. You will see five
@@ -117,7 +117,7 @@ the PyAgent\_Process function takes the five separate percepts, rather than a
 Percept class instance, and the PyAgent\_Process function should return one of
 the six actions defined in the Action.py file.
 
-Once you've finished your PyAgent.py file, simply run './pywumpsim' 
+Once you've finished your PyAgent.py file, simply run `./pywumpsim` 
 to test your agent. **The PyAgent.py file and the 'pywumpsim' executable must be
 in the same directory.** The 'pywumpsim' program accepts all the options
 described above for 'wumpsim'. And there is no need to recompile 'pywumpsim'
