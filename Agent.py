@@ -16,7 +16,7 @@ class Agent:
         valid_action = False
         while not valid_action:
             valid_action = True
-            c = input("Action? ") # Python 3 (use raw_input for Python 2)
+            c = raw_input("Action? ") # Python 2 (replace raw_input with input for Python 3)
             if c == 'f':
                 action = Action.GOFORWARD
             elif c == 'l':
