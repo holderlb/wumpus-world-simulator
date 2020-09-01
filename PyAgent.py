@@ -1,42 +1,28 @@
 # PyAgent.py
 
-import Action
-import Orientation
+from Agent import Agent
+from Percept import Percept
+
+py_agent = None
 
 def PyAgent_Constructor ():
-    print("PyAgent_Constructor")
+    global py_agent
+    py_agent = Agent()
 
 def PyAgent_Destructor ():
-    print("PyAgent_Destructor")
+    global py_agent
+    py_agent = None
 
 def PyAgent_Initialize ():
-    print("PyAgent_Initialize")
+    global py_agent
+    py_agent.Initialize()
 
-def PyAgent_Process (stench,breeze,glitter,bump,scream):
-    perceptStr = ""
-    if (stench == 1):
-        perceptStr += "Stench=True,"
-    else:
-        perceptStr += "Stench=False,"
-    if (breeze == 1):
-        perceptStr += "Breeze=True,"
-    else:
-        perceptStr += "Breeze=False,"
-    if (glitter == 1):
-        perceptStr += "Glitter=True,"
-    else:
-        perceptStr += "Glitter=False,"
-    if (bump == 1):
-        perceptStr += "Bump=True,"
-    else:
-        perceptStr += "Bump=False,"
-    if (scream == 1):
-        perceptStr += "Scream=True"
-    else:
-        perceptStr += "Scream=False"
-    print("PyAgent_Process: " + perceptStr)
-    
-    return Action.GOFORWARD
+def PyAgent_Process (stench, breeze, glitter, bump, scream):
+    global py_agent
+    percept = Percept()
+    percept.set_percept(bool(stench), bool(breeze), bool(glitter), bool(bump), bool(scream))
+    return py_agent.Process(percept)
 
 def PyAgent_GameOver (score):
-    print("PyAgent_GameOver: score = " + str(score))
+    global py_agent
+    py_agent.GameOver(score)

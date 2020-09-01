@@ -10,7 +10,11 @@ PYTHON_CONFIG = python-config
 PYTHON-INC = $(shell $(PYTHON_CONFIG) --includes)
 PYTHON-LIB = $(shell $(PYTHON_CONFIG) --ldflags)
 
-# Settings for MacOS
+# Settings for MacOS (python v3.8, installed via brew)
+#PYTHON-INC = -I/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.8/include/python3.8
+#PYTHON-LIB = -L/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.8/lib/ -lpython3.8
+
+# Settings for MacOS (python v2.7)
 # PYTHON-INC = -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7
 # PYTHON-LIB = -L/System/Library/Frameworks/Python.framework/Versions/2.7/lib -lpython2.7
 

@@ -101,21 +101,17 @@ compile the simulator using 'make pywumpsim'.  On some platforms you need to
 set the PYTHONPATH environment variable to your working directory, where
 pywumpsim and PyAgent.py reside.
 
-Next, you will make all your changes to the PyAgent.py file. You will see five
-functions in the file: PyAgent\_Constructor, PyAgent\_Destructor,
-PyAgent\_Initialize, PyAgent\_Process, and PyAgent\_GameOver. These five
-functions are called by their counterparts in the Agent.h and Agent.cc files.
-You can see how this is done in PyAgent.h and PyAgent.cc files, BUT DO NOT
-MODIFY THESE FILES. The only file you should change is PyAgent.py. Note that
-the PyAgent\_Process function takes the five separate percepts, rather than a
-Percept class instance, and the PyAgent\_Process function should return one of
-the six actions defined in the Action.py file.
+Next, you will make all your changes to the Agent.py file. This file contains
+the Agent class consisting five methods: \_\_init\_\_, \_\__del\_\_,
+Initialize, Process, and GameOver.  Note that the Process method takes a
+percept class as defined in Percept.py.  The Process function should return one
+of the six actions defined in Action.py.
 
-Once you've finished your PyAgent.py file, simply run the 'pywumpsim' program
-to test your agent. The PyAgent.py file and the 'pywumpsim' executable must be
+Once you've finished your Agent.py file, simply run the 'pywumpsim' program
+to test your agent. The Agent.py file and the 'pywumpsim' executable must be
 in the same directory. The 'pywumpsim' program accepts all the options
 described above for 'wumpsim'. And there is no need to recompile 'pywumpsim'
-after changes to PyAgent.py; this file is reloaded everytime 'pywumpsim' is
+after changes to Agent.py; this file is reloaded everytime 'pywumpsim' is
 executed.
 
 Happy hunting!
