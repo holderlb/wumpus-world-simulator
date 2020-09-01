@@ -102,7 +102,7 @@ pywumpsim and Agent.py reside.
 
 Next, you will make all your changes to the Agent.py file. This file contains
 the Agent class consisting five methods: constructor (\_\_init\_\_), destructor
-(\_\__del\_\_), Initialize, Process, and GameOver.  Note that the Process
+(\_\_del\_\_), Initialize, Process, and GameOver.  Note that the Process
 method takes a percept class as defined in Percept.py.  The Process function
 should return one of the six actions defined in Action.py.
 
