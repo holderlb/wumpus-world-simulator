@@ -8,11 +8,10 @@ The Wumpus Simulator is a simple framework for simulating the Wumpus World
 described in Russell and Norvig's "Artificial Intelligence: A Modern
 Approach". The simulator is written in C++, but you can design your agent in
 either C++ or Python. The idea is for you to modify the Agent.h and Agent.cc
-(or PyAgent.py) files to implement your super-smart agent. The C++ agent
-provided simply accepts commands from the keyboard and executes them in the
+(or Agent.py) files to implement your super-smart agent. The C++ and Python agents
+provided simply accept commands from the keyboard and execute them in the
 simulator.  The keyboard commands are 'f' for forward, 'l' for turnleft, 'r'
-for turnright, 'g' for grab, 's' for shoot, and 'c' for climb. The Python agent
-provided simply goes forward everytime.
+for turnright, 'g' for grab, 's' for shoot, and 'c' for climb.
 
 ## Quick Start
 
@@ -67,9 +66,9 @@ agent's Process() method is called with the current Percept, and the agent
 should return an action, which is performed in the simulator. This continues
 until the game is over (agent dies or leaves cave) or the maximum number of
 moves (1000) is exceeded. When the game is over, the Agent's GameOver() method
-is called. If additional tries are left for this world, then the world is
-re-initialized, and the agent's Initialize() method is called again, and play
-proceeds on another instance of the same game.
+is called with the final score. If additional tries are left for this world,
+then the world is re-initialized, and the agent's Initialize() method is called
+again, and play proceeds on another instance of the same game.
 
 After the number of tries is completed, the agent is deleted. So, you may want
 to store some information in the agent's destructor method to be reloaded
@@ -99,13 +98,13 @@ compile a different version of the simulator that supports calling external
 Python agent functions. Instead of 'make' or 'make wumpsim', you should instead
 compile the simulator using 'make pywumpsim'.  On some platforms you need to
 set the PYTHONPATH environment variable to your working directory, where
-pywumpsim and PyAgent.py reside.
+pywumpsim and Agent.py reside.
 
 Next, you will make all your changes to the Agent.py file. This file contains
-the Agent class consisting five methods: \_\_init\_\_, \_\__del\_\_,
-Initialize, Process, and GameOver.  Note that the Process method takes a
-percept class as defined in Percept.py.  The Process function should return one
-of the six actions defined in Action.py.
+the Agent class consisting five methods: constructor (\_\_init\_\_), destructor
+(\_\__del\_\_), Initialize, Process, and GameOver.  Note that the Process
+method takes a percept class as defined in Percept.py.  The Process function
+should return one of the six actions defined in Action.py.
 
 Once you've finished your Agent.py file, simply run the 'pywumpsim' program
 to test your agent. The Agent.py file and the 'pywumpsim' executable must be
