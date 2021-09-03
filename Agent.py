@@ -1,5 +1,6 @@
 # Agent.py
 
+import sys
 import Action
 
 class Agent:
@@ -16,7 +17,10 @@ class Agent:
         valid_action = False
         while not valid_action:
             valid_action = True
-            c = raw_input("Action? ") # Python 2 (replace raw_input with input for Python 3)
+            if sys.version_info[0] < 3:
+                c = raw_input("Action? ") # Python 2
+            else:
+                c = input("Action? ") # Python 3
             if c == 'f':
                 action = Action.GOFORWARD
             elif c == 'l':
