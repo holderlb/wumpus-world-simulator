@@ -3,6 +3,8 @@
 import sys
 import Action
 
+_GetInput = raw_input if sys.version_info[0] < 3 else input #if Python 2 else Python 3
+
 class Agent:
     def __init__(self):
         pass
@@ -17,10 +19,7 @@ class Agent:
         valid_action = False
         while not valid_action:
             valid_action = True
-            if sys.version_info[0] < 3:
-                c = raw_input("Action? ") # Python 2
-            else:
-                c = input("Action? ") # Python 3
+            c = _GetInput("Action? ")
             if c == 'f':
                 action = Action.GOFORWARD
             elif c == 'l':
